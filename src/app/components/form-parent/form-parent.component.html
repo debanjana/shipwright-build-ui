@@ -1,0 +1,33 @@
+
+
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Github URL</mat-label>
+    <input matInput placeholder="url" [formControl]="githubUrl" >
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Docker File</mat-label>
+    <input matInput placeholder="url" [formControl]="dockerFilePath" >
+  </mat-form-field>
+
+  <mat-form-field  appearance="fill">
+    <mat-label>Build Strategies</mat-label>
+    <mat-select  [formControl]="buildStrategy" multiple>
+      <mat-select-trigger panelClass="example-panel">
+        {{buildStrategy.value ? buildStrategy.value[0] : ''}}
+        <span *ngIf="buildStrategy.value?.length > 1" >
+          (+{{buildStrategy.value.length - 1}} {{buildStrategy.value?.length === 2 ? 'other' : 'others'}})
+        </span>
+      </mat-select-trigger>
+      <mat-option *ngFor="let buildStrategy of buildStrategies" [value]="buildStrategy">{{buildStrategy}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button (click)="buildForm()" mat-raised-button color="primary">Build</button>
+
+  <!-- <li *ngIf="status">
+    <i>{{status}}</i>
+  </li> -->
+  
+</form>

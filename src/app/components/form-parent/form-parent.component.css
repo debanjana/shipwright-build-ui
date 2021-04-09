@@ -15,6 +15,12 @@
     font-size: 0.75em;
   }
 
+  .nav-logo {
+    display: inline-block;
+    margin: 0 0;
+    height: 42px;
+}
+
   
 
 
